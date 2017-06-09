@@ -10,6 +10,7 @@
                 <ul class="nav navbar-nav">      
                     <li><a href="{{ url('/user_lk') }}">Laporan Kehilangan<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>        
                     <li><a href="{{ url('/guest_pk') }}">Temuan Kendaraan<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
+                    <li><a href="{{ url('/guest_berita') }}">Berita<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li><li><a href="{{ url('/my_laporan') }}">Laporan Saya<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
                 </ul>
             </div>
         </div>

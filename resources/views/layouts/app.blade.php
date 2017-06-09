@@ -65,6 +65,7 @@
                     @if (Auth::guest())
                         <li><a href="{{ url('/guest_lk') }}">Kehilangan</a></li>
                         <li><a href="{{ url('/guest_pk') }}">Penemuan</a></li>
+                        <li><a href="{{ url('/guest_berita') }}">Berita</a></li>
                     @else
 
                     @endif                

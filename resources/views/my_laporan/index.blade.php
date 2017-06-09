@@ -13,16 +13,6 @@
                 <div class="panel-heading">Laporan Kehilangan</div>
 
                 <div class="panel-body">
-                    {!! Form::open(['method'=>'GET','url'=>'user_lk','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" name="search" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default-sm" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    {!! Form::close() !!}
                     <table class="table">
                         <tr>
                             <th>Daerah</th>
@@ -33,6 +23,7 @@
                             <th>Warna</th>
                             <th>Tanggal Hilang</th>
                             <th>Keterangan</th>
+                            <th>Aksi</th>
                         </tr>
                         @foreach($lapkehilangan as $lap_kehilangan)
                             <tr>
@@ -43,7 +34,8 @@
                                 <td>{{ $lap_kehilangan->merk_kendaraan }}</td>
                                 <td>{{ $lap_kehilangan->warna_kendaraan }}</td>
                                 <td>{{ $lap_kehilangan->tanggal_hilang }}</td>
-                                <td>{{ link_to_route('user_lk.show', $lap_kehilangan->keterangan,[$lap_kehilangan->id_lap_kehilangan]) }}</td>
+                                <td>{{ $lap_kehilangan->keterangan }}</td>
+                                <td>{{ link_to_route('my_laporan.show', 'Print', [$lap_kehilangan->id_lap_kehilangan], ['target'=>'_blank']) }}</td>
                             </tr>
                         @endforeach
                     </table>

@@ -7,10 +7,11 @@ use App\Lap_kehilangan;
 use App\Daerah_rawan;
 
 use Illuminate\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\Lap_kehilanganRequest;
 
-class guest_lkController extends Controller 
+class My_laporanController extends Controller 
 {
 
   /**
@@ -21,21 +22,17 @@ class guest_lkController extends Controller
   public function index()
   {
     $search = \Request::get('search');
+    $namaorang = Auth::user()->name;
     $lapkehilangan = DB::table('lap_kehilangan')
                                 ->leftJoin('daerah_rawan', 'lap_kehilangan.id_daerah', '=', 'daerah_rawan.id_daerah')
                                 ->leftJoin('users', 'lap_kehilangan.id_pendaftaran', '=', 'users.id')
-                                ->where('jenis_kendaraan','like', '%'.$search.'%')
-                                ->orWhere('merk_kendaraan','like', '%'.$search.'%')
-                                ->orWhere('warna_kendaraan','like', '%'.$search.'%')
-                                ->orWhere('keterangan','like', '%'.$search.'%')
-                                ->orWhere('users.name','like', '%'.$search.'%')
-                                ->orWhere('daerah_rawan.nama','like', '%'.$search.'%')
+                                ->where('users.name', 'like', '%'.$namaorang.'%')
                                 ->get();
-    // $lapkehilangan = DB::table('lap_kehilangan')
-    //                     ->leftJoin('daerah_rawan', 'lap_kehilangan.id_daerah', '=', 'daerah_rawan.id_daerah')
-    //                     ->leftJoin('users', 'lap_kehilangan.id_pendaftaran', '=', 'users.id')
-    //                     ->get();
-    return view('Guest_lk.index', compact('lapkehilangan'));
+    /*$lapkehilangan = DB::table('lap_kehilangan')
+                        ->leftJoin('daerah_rawan', 'lap_kehilangan.id_daerah', '=', 'daerah_rawan.id_daerah')
+                        ->leftJoin('users', 'lap_kehilangan.id_pendaftaran', '=', 'users.id')
+                        ->get();*/
+    return view('my_laporan.index', compact('lapkehilangan'));
   }
 
   /**
@@ -55,7 +52,6 @@ class guest_lkController extends Controller
    */
   public function store(Lap_kehilanganRequest $request)
   {
-    Lap_kehilangan::create($request->all());
 
   }
 
@@ -65,9 +61,13 @@ class guest_lkController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show(Lap_kehilangan $lap_kehilangan)
+  public function show(Lap_kehilangan $my_laporan)
   {
-
+    $namadaerah = daerah_rawan::all();
+    $daerah = Daerah_rawan::all('nama', 'id_daerah');
+    
+    $daerah->all();
+    return view('my_laporan.show', compact('my_laporan', 'daerah'));
   }
 
   /**

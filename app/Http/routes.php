@@ -23,8 +23,10 @@ Route::resource('penemuan', 'PenemuanController');
 Route::resource('guest_lk', 'Guest_lkController');
 Route::resource('guest_pk', 'Guest_pkController');
 
+Route::resource('guest_berita', 'Guest_beritaController');
+Route::resource('my_laporan', 'My_laporanController');
+
 Route::resource('user_lk', 'User_lkController');
-//Route::resource('user_pk', 'User_pkController');
 
 Route::resource('berita', 'BeritaController');
 

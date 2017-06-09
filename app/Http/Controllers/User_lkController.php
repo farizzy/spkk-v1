@@ -7,6 +7,7 @@ use App\Lap_kehilangan;
 use App\Daerah_rawan;
 
 use Illuminate\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\Lap_kehilanganRequest;
 
@@ -20,10 +21,24 @@ class user_lkController extends Controller
    */
   public function index()
   {
+    $search = \Request::get('search');
+    $namaorang = Auth::user()->name;
     $lapkehilangan = DB::table('lap_kehilangan')
+                                ->leftJoin('daerah_rawan', 'lap_kehilangan.id_daerah', '=', 'daerah_rawan.id_daerah')
+                                ->leftJoin('users', 'lap_kehilangan.id_pendaftaran', '=', 'users.id')
+                                ->where('users.name', 'like', '%'.$namaorang.'%')
+                                ->orWhere('jenis_kendaraan','like', '%'.$search.'%')
+                                ->orWhere('merk_kendaraan','like', '%'.$search.'%')
+                                ->orWhere('warna_kendaraan','like', '%'.$search.'%')
+                                ->orWhere('keterangan','like', '%'.$search.'%')
+                                //->orWhere('users.name','like', '%'.$search.'%')
+                                ->orWhere('daerah_rawan.nama','like', '%'.$search.'%')
+                                ->get();
+                                dd($search);
+    /*$lapkehilangan = DB::table('lap_kehilangan')
                         ->leftJoin('daerah_rawan', 'lap_kehilangan.id_daerah', '=', 'daerah_rawan.id_daerah')
                         ->leftJoin('users', 'lap_kehilangan.id_pendaftaran', '=', 'users.id')
-                        ->get();
+                        ->get();*/
     return view('user_lk.index', compact('lapkehilangan'));
   }
 

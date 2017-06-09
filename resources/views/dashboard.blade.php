@@ -11,6 +11,7 @@
 			        <li class="active"><a href="{{ url('/daerah_rawan') }}">Daerah Rawan<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>       
 			        <li><a href="{{ url('/lap_kehilangan') }}">Laporan Kehilangan<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>        
 			        <li><a href="{{ url('/penemuan') }}">Temuan Kendaraan<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
+			        <li><a href="{{ url('/berita') }}">Berita<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
 		      	</ul>
 		    </div>
 	  	</div>

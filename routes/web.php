@@ -23,3 +23,4 @@ Route::resource('lap_kehilangan', 'Lap_kehilanganController');
 Route::resource('penemuan', 'PenemuanController');
 Route::resource('user_lk', 'User_lkController');
 Route::resource('berita', 'BeritaController');
+Route::resource('guest_berita', 'Guest_beritaController');
