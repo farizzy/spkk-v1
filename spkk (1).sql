@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2017 at 08:21 AM
+-- Generation Time: Jun 14, 2017 at 05:29 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -157,16 +157,18 @@ CREATE TABLE `penemuan` (
   `merk_temuan` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `warna_temuan` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `no_mesin_temuan` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `deskripsi_temuan` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `deskripsi_temuan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `penemuan`
 --
 
-INSERT INTO `penemuan` (`id_penemuan`, `created_at`, `updated_at`, `id_lap_kehilangan`, `no_polisi_temuan`, `tanggal_temuan`, `foto`, `jenis_temuan`, `merk_temuan`, `warna_temuan`, `no_mesin_temuan`, `deskripsi_temuan`) VALUES
-(1, NULL, NULL, 11, 'B 3112 SIA', '2017-05-30', '', 'Motor', 'Honda', 'Kuning', 'kdao34e', 'Ditemukan di pasar minggu'),
-(2, '2017-05-29 18:33:42', '2017-05-29 18:33:42', 1, 'DS 5642 SA', '2017-05-30', '', 'Mobil', 'Toyota', 'Putih', 'ads2we423', 'asdewerw');
+INSERT INTO `penemuan` (`id_penemuan`, `created_at`, `updated_at`, `id_lap_kehilangan`, `no_polisi_temuan`, `tanggal_temuan`, `foto`, `jenis_temuan`, `merk_temuan`, `warna_temuan`, `no_mesin_temuan`, `deskripsi_temuan`, `status`) VALUES
+(1, NULL, '2017-06-13 18:20:31', 11, 'B 3112 SIA', '2017-05-30', '', 'Motor', 'Honda', 'Kuning', 'kdao34e', 'Ditemukan di pasar minggu', 1),
+(2, '2017-05-29 18:33:42', '2017-06-13 18:26:47', 1, 'DS 5642 SA', '2017-05-30', '', 'Mobil', 'Toyota', 'Putih', 'ads2we423', 'asdewerw', 1),
+(3, '2017-06-13 16:24:39', '2017-06-13 16:24:39', 9, 'asdasd', '2017-06-14', '', 'asdasd', 'asda', 'asdasd', 'asdasd', 'asdasdasd', 0);
 
 -- --------------------------------------------------------
 
@@ -222,8 +224,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama_lengkap`, `name`, `password`, `email`, `jk`, `alamat`, `admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'administrator', '$2y$10$wAPSJW5KqeL1tCmJbrysceSaty.NgBC6SB0tNjagDmNhaJdwUDd8y', 'admin@yahoo.com', '', '', 1, 'mwuOEHXutjjXcSSn9Hxv6fLJtse5wGhL3JOM87r28sU8nJkqTbphZpIKQUGV', NULL, NULL),
-(3, 'Budi Anduk', 'budi', '$2y$10$pQsYJ13qp9HRqMdlaSuVrOAt5Eu/tPYbmVbGCllhVnOpLq/YGIyEO', 'budi.anduk@yahoo.com', 'Laki-Laki', 'jauh coy', 0, '7AdIAAA9POaetEyYtUDoav7rpMwurWEFLJ5wPNpsqPu09sGsrkqUhBIOBTfN', NULL, NULL),
+(1, 'Administrator', 'administrator', '$2y$10$wAPSJW5KqeL1tCmJbrysceSaty.NgBC6SB0tNjagDmNhaJdwUDd8y', 'admin@yahoo.com', '', '', 1, 'HQZySkXKhzPbnwUVQUXvPcKVdhSzefezgbTdAuSCDLXS7g4GOsTIjdUzK2hB', NULL, NULL),
+(3, 'Budi Anduk', 'budi', '$2y$10$pQsYJ13qp9HRqMdlaSuVrOAt5Eu/tPYbmVbGCllhVnOpLq/YGIyEO', 'budi.anduk@yahoo.com', 'Laki-Laki', 'jauh coy', 0, 'RDyRmQPDt8Fin8t5Zu67b1TqVj8W10GbVrAQYhLj4QCPqoGG5p69z3ienChk', NULL, NULL),
 (4, 'ANI', 'ANI SIAN', 'aaaaaa', 'ani@yahoo.com', 'Perempuan', 'Kotaraja', 0, NULL, NULL, NULL);
 
 --
@@ -302,7 +304,7 @@ ALTER TABLE `lap_kehilangan`
 -- AUTO_INCREMENT for table `penemuan`
 --
 ALTER TABLE `penemuan`
-  MODIFY `id_penemuan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_penemuan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `saran_komentar`
 --

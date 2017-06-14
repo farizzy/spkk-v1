@@ -9,7 +9,7 @@ class Penemuan extends Model
 
     protected $table = 'penemuan';
 	protected $primaryKey = 'id_penemuan';
-	protected $fillable = ['id_lap_kehilangan', 'no_polisi_temuan', 'tanggal_temuan', 'jenis_temuan', 'merk_temuan', 'warna_temuan', 'no_mesin_temuan', 'deskripsi_temuan'];
+	protected $fillable = ['id_lap_kehilangan', 'no_polisi_temuan', 'tanggal_temuan', 'jenis_temuan', 'merk_temuan', 'warna_temuan', 'no_mesin_temuan', 'deskripsi_temuan', 'status'];
 
     public $timestamps = true;
 

@@ -41,7 +41,6 @@ Route::post('login/custom', [
 	'uses' => 'LoginController@login',
 	'as' => 'login.custom'
 ]);
-
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/home', function(){
 		return view('home');

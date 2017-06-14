@@ -20,6 +20,7 @@
                             <th>Warna</th>
                             <th>Tanggal Ditemukan</th>
                             <th>Keterangan</th>
+                            <th>Status</th>
                         </tr>
                         @foreach($ditemukan as $penemuan)
                             <tr>
@@ -29,6 +30,11 @@
                                 <td>{{ $penemuan->warna_temuan }}</td>
                                 <td>{{ $penemuan->tanggal_temuan }}</td>
                                 <td>{{ $penemuan->deskripsi_temuan }}</td>
+                                @if ($penemuan->status === 1)
+                                    <td><p class="text-success">Telah Diambil</p></td>
+                                @else
+                                    <td><p class="text-warning">Belum Diambil</p></td>
+                                @endif
                             </tr>
                         @endforeach
                     </table>

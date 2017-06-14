@@ -77,9 +77,14 @@ class PenemuanController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  public function edit(Penemuan $penemuan)
   {
-    
+    return view('penemuan.edit', compact('penemuan'));
+    /*$data = $request->input('id_penemuan');
+      
+    $id_ditemukan = $request->id_penemuan;
+    Penemuan::where('id_penemuan', $id_ditemukan)
+      ->update(['status' => 1]);*/
   }
 
   /**
@@ -88,9 +93,13 @@ class PenemuanController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update(PenemuanRequest $request, Penemuan $penemuan)
   {
-    
+    $id_diambil = $penemuan->id_penemuan;
+    //dd($id_diambil);
+    Penemuan::where('id_penemuan', $id_diambil)
+      ->update(['status' => 1]);
+    return redirect()->route('penemuan.index')->with('message', 'Kendaraan telah diambil!');
   }
 
   /**

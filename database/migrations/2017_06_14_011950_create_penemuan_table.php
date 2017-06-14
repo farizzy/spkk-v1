@@ -19,6 +19,7 @@ class CreatePenemuanTable extends Migration {
 			$table->string('warna_temuan', 25);
 			$table->string('no_mesin_temuan', 15);
 			$table->string('deskripsi_temuan', 100);
+			$table->boolean('status')->default(0);
 		});
 	}
 
