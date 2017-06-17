@@ -122,7 +122,6 @@ class Lap_kehilanganController extends Controller
                                 ->orWhere('warna_kendaraan','like', '%'.$search.'%')
                                 ->orWhere('keterangan','like', '%'.$search.'%')
                                 ->get();
-                                dd($lap_kehilangan);
     return view('lap_kehilangan.index',compact('lap_kehilangan'));
   }
 

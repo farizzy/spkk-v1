@@ -30,14 +30,9 @@ class PenemuanController extends Controller
                         ->orWhere('deskripsi_temuan','like', '%'.$search.'%')
                         ->get();
     $hasil = count($ditemukan);
-
     //dd($hasil);
-    
-    if ($hasil == 0) {
-      return view('Penemuan.index', compact('ditemukan', 'hasil'));
-    } else {
-      return view('Penemuan.index', compact('ditemukan', 'hasil'));
-    }
+    return view('Penemuan.index', compact('ditemukan', 'hasil'));
+
   }
 
   /**
