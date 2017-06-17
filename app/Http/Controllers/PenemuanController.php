@@ -19,11 +19,25 @@ class PenemuanController extends Controller
    */
   public function index()
   {
+    $search = \Request::get('search');
     $ditemukan = DB::table('penemuan')
                         ->leftJoin('lap_kehilangan', 'penemuan.id_lap_kehilangan', '=', 'lap_kehilangan.id_lap_kehilangan')
+                        ->where('no_polisi_temuan','like', '%'.$search.'%')
+                        ->orWhere('jenis_temuan','like', '%'.$search.'%')
+                        ->orWhere('merk_temuan','like', '%'.$search.'%')
+                        ->orWhere('warna_temuan','like', '%'.$search.'%')
+                        ->orWhere('no_mesin_temuan','like', '%'.$search.'%')
+                        ->orWhere('deskripsi_temuan','like', '%'.$search.'%')
                         ->get();
+    $hasil = count($ditemukan);
 
-    return view('Penemuan.index', compact('ditemukan'));
+    //dd($hasil);
+    
+    if ($hasil == 0) {
+      return view('Penemuan.index', compact('ditemukan', 'hasil'));
+    } else {
+      return view('Penemuan.index', compact('ditemukan', 'hasil'));
+    }
   }
 
   /**

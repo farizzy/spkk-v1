@@ -34,7 +34,7 @@ class user_lkController extends Controller
                                 //->orWhere('users.name','like', '%'.$search.'%')
                                 ->orWhere('daerah_rawan.nama','like', '%'.$search.'%')
                                 ->get();
-                                dd($search);
+                                //dd($search);
     /*$lapkehilangan = DB::table('lap_kehilangan')
                         ->leftJoin('daerah_rawan', 'lap_kehilangan.id_daerah', '=', 'daerah_rawan.id_daerah')
                         ->leftJoin('users', 'lap_kehilangan.id_pendaftaran', '=', 'users.id')

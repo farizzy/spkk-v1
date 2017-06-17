@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Berita;
+use App\Penemuan;
 use Illuminate\Http\Requests;
 
 use App\Http\Requests\BeritaRequest;
@@ -19,7 +20,11 @@ class Guest_beritaController extends Controller
   public function index()
   {
     $news = Berita::orderBy('created_at', 'desc')->paginate(5);
-    return view('guest_berita.index', compact('news'));
+    $pengambilan = DB::table('penemuan')
+                        ->leftJoin('lap_kehilangan', 'penemuan.id_lap_kehilangan', '=', 'lap_kehilangan.id_lap_kehilangan')
+                        ->where('status','=', 1)
+                        ->get();
+    return view('guest_berita.index', compact('news', 'pengambilan'));
   }
 
   /**
