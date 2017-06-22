@@ -36,11 +36,19 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('Tanggal Ditemukan','Tanggal Ditemukan') !!}
-                            {!! Form::date('tanggal_temuan', \Carbon\Carbon::now(), ['class'=>'form-control', 'readonly'=>'readonly']); !!}
+                            {!! Form::date('tanggal_temuan', null, ['class'=>'form-control', 'readonly'=>'readonly']); !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Deskripsi','Deskripsi') !!}
                             {!! Form::textarea('deskripsi_temuan', null, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Yang Mengambil','Yang Mengambil') !!}
+                            {!! Form::textarea('nama_pengambil', null, ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Tanggal Diambil','Tanggal Diambil') !!}
+                            {!! Form::date('tgl_diambil', \Carbon\Carbon::now(), ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::button('Telah Diambil',['type'=>'submit','class'=>'btn btn-success']) !!}

@@ -20,7 +20,8 @@
                                 <td><h3><b>{{ $berita->judul }}</b></h3></td>
                             </tr>
                             <tr>
-                                <td>{{ $berita->isi }}
+                                <td><img src="{{ $berita->title }}" width="150"> <br>
+                                    {{ $berita->isi }}
                                     {!! Form::open(array('route'=>['berita.destroy', $berita->id], 'method'=>'DELETE')) !!}
                                         {{ link_to_route('berita.edit', 'Edit', [$berita->id], ['class'=>'btn btn-default']) }}
                                         |

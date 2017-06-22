@@ -37,6 +37,13 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/visi_misi', function(){
+		return view('visi_misi');
+	});
+Route::get('/struktur', function(){
+		return view('struktur');
+	});
+
 Route::post('login/custom', [
 	'uses' => 'LoginController@login',
 	'as' => 'login.custom'

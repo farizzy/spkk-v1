@@ -30,7 +30,8 @@
                             <th>Jenis</th>
                             <th>Merk</th>
                             <th>Warna</th>
-                            <th>Tanggal Ditemukan</th>
+                            <th>Pengambil</th>
+                            <th>Tanggal Diambil</th>
                             <th>Keterangan</th>
                             <th>Status</th>
                         @if ($hasil === 0)
@@ -44,7 +45,8 @@
                                 <td>{{ $penemuan->jenis_temuan }}</td>
                                 <td>{{ $penemuan->merk_temuan }}</td>
                                 <td>{{ $penemuan->warna_temuan }}</td>
-                                <td>{{ $penemuan->tanggal_temuan }}</td>
+                                <td>{{ $penemuan->nama_pengambil }}</td>
+                                <td>{{ $penemuan->tgl_diambil }}</td>
                                 <td>{{ $penemuan->deskripsi_temuan }}</td>
                                 @if ($penemuan->status === 1)
                                     <td><p class="text-success">Telah Diambil</p></td>

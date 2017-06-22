@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Berita;
 use Illuminate\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests\BeritaRequest;
 
@@ -41,7 +42,22 @@ class BeritaController extends Controller
    */
   public function store(BeritaRequest $request)
   {
-    Berita::create($request->all());
+    $berita = new berita;
+
+    $berita->title = Input::get('name');
+    if (Input::hasFile('image')) {
+      $file = Input::file('image');
+      $file->move(public_path(). '/', $file->getClientOriginalName());
+
+      $berita->judul = $request->judul;
+      $berita->isi = $request->isi;
+      $berita->title = $file->getClientOriginalName();
+      $berita->size = $file->getClientsize();
+      $berita->type = $file->getClientMimeType();
+    }
+    $berita->save();
+
+    //Berita::create($request->all());
     return redirect()->route('berita.index')->with('message', 'Berita berhasil ditambahkan!');
   }
 

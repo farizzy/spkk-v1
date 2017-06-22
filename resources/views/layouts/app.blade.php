@@ -40,7 +40,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -53,7 +53,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}" style="color:orange;">
                     Laravel
                 </a>
             </div>
@@ -61,11 +61,13 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}" style="color:yellow;">Home</a></li>
                     @if (Auth::guest())
-                        <li><a href="{{ url('/guest_lk') }}">Kehilangan</a></li>
-                        <li><a href="{{ url('/guest_pk') }}">Penemuan</a></li>
-                        <li><a href="{{ url('/guest_berita') }}">Berita</a></li>
+                        <li><a href="{{ url('/guest_lk') }}" style="color:yellow;">Kehilangan</a></li>
+                        <li><a href="{{ url('/guest_pk') }}" style="color:yellow;">Penemuan</a></li>
+                        <li><a href="{{ url('/guest_berita') }}" style="color:yellow;">Berita</a></li>
+                        <li><a href="{{ url('/visi_misi') }}" style="color:yellow;">Visi & Misi</a></li>
+                        <li><a href="{{ url('/struktur') }}" style="color:yellow;">Struktur Organisasi</a></li>
                     @else
 
                     @endif                
@@ -74,8 +76,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}" style="color:orange;">Login</a></li>
+                        <li><a href="{{ url('/register') }}" style="color:orange;">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

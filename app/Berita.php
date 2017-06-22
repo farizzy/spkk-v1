@@ -8,7 +8,7 @@ class Berita extends Model
 {
 
     protected $table = 'beritas';
-    protected $fillable = ['judul', 'isi'];
+    protected $fillable = ['judul', 'isi', 'title', 'judul_gambar', 'size', 'type'];
     public $timestamps = true;
 
 }

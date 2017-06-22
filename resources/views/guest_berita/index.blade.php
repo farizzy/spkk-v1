@@ -19,8 +19,8 @@
                                 <td><h3><b>{{ $berita->judul }}</b></h3></td>
                             </tr>
                             <tr>
-                                <td>{{ $berita->isi }}
-                                    
+                                <td><img src="{{ $berita->title }}" width="150"> <br>
+                                    {{ $berita->isi }}    
                                 </td>
                             </tr>
                             

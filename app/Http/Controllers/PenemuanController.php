@@ -105,9 +105,16 @@ class PenemuanController extends Controller
   public function update(PenemuanRequest $request, Penemuan $penemuan)
   {
     $id_diambil = $penemuan->id_penemuan;
-    //dd($id_diambil);
+    $pengambil = $request->input('nama_pengambil');
+    $tgl_ambil = $request->input('tgl_diambil');
+    
+    //dd($request->input('nama_pengambil'));
     Penemuan::where('id_penemuan', $id_diambil)
       ->update(['status' => 1]);
+    Penemuan::where('id_penemuan', $id_diambil)
+      ->update(['nama_pengambil' => $pengambil]);
+    Penemuan::where('id_penemuan', $id_diambil)
+      ->update(['tgl_diambil' => $tgl_ambil]);
     return redirect()->route('penemuan.index')->with('message', 'Kendaraan telah diambil!');
   }
 

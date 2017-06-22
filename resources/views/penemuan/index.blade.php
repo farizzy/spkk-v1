@@ -32,7 +32,8 @@
                             <th>Jenis</th>
                             <th>Merk</th>
                             <th>Warna</th>
-                            <th>Tanggal Ditemukan</th>
+                            <th>Pengambil</th>
+                            <th>Tanggal Diambil</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -50,19 +51,26 @@
                                 <td>{{ $penemuan->jenis_temuan }}</td>
                                 <td>{{ $penemuan->merk_temuan }}</td>
                                 <td>{{ $penemuan->warna_temuan }}</td>
-                                <td>{{ $penemuan->tanggal_temuan }}</td>
+                                <td>{{ $penemuan->nama_pengambil }}</td>
+                                <td>{{ $penemuan->tgl_diambil }}</td>
                                 @if ($penemuan->status === 1)
                                     <td><p class="text-success">Telah Diambil</p></td>
+                                    <td>
+                                        {!! Form::open(array('route'=>['penemuan.destroy', $penemuan->id_penemuan], 'method'=>'DELETE')) !!}
+                                            {!! Form::button('Hapus',['class'=>'btn btn-danger', 'type'=>'submit']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
                                 @else
                                     <td><p class="text-warning">Belum Diambil</p></td>
+                                    <td>
+                                        {!! Form::open(array('route'=>['penemuan.destroy', $penemuan->id_penemuan], 'method'=>'DELETE')) !!}
+                                            {{ link_to_route('penemuan.edit', 'Diambil', [$penemuan->id_penemuan], ['class'=>'btn btn-default']) }}
+                                            |
+                                            {!! Form::button('Hapus',['class'=>'btn btn-danger', 'type'=>'submit']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
                                 @endif
-                                <td>
-                                    {!! Form::open(array('route'=>['penemuan.destroy', $penemuan->id_penemuan], 'method'=>'DELETE')) !!}
-                                        {{ link_to_route('penemuan.edit', 'Diambil', [$penemuan->id_penemuan], ['class'=>'btn btn-default']) }}
-                                        |
-                                        {!! Form::button('Hapus',['class'=>'btn btn-danger', 'type'=>'submit']) !!}
-                                    {!! Form::close() !!}
-                                </td>
+                                
                             </tr>
                         
                         @endforeach

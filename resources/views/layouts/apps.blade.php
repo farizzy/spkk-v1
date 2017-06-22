@@ -56,7 +56,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/dashboard') }}">
                     Laravel
                 </a>
             </div>
