@@ -8,7 +8,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-			        <li class="active"><a href="{{ url('/daerah_rawan') }}">Daerah Rawan<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>       
+			        <li><a href="{{ url('/daerah_rawan') }}">Daerah Rawan<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>       
 			        <li><a href="{{ url('/lap_kehilangan') }}">Laporan Kehilangan<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>        
 			        <li><a href="{{ url('/penemuan') }}">Temuan Kendaraan<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
 			        <li><a href="{{ url('/berita') }}">Berita<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>
@@ -16,7 +16,7 @@
 		    </div>
 	  	</div>
 	</nav>
-    <div class="row">
+    <div class="row" style="color:white;">
         <h1 class="text-center">
             Selamat Datang!
         </h1>

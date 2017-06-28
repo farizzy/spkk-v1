@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     {!!Html::style('../resources/assets/css/jquery.dataTables.css')!!}
     {!!Html::script('../resources/assets/js/jquery-3.2.1.js')!!}
@@ -21,9 +22,29 @@
     <style>
         body {
             font-family: 'Lato';
-            background: url("wall.jpg");
+            background: url("banner.jpg");
+            background: url("logo.png");
+            background: #000000;
             background-repeat:no-repeat;
             background-size:cover;
+        }
+   
+        #banner {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            width: 100%;
+            height: 72px;
+            z-index: -1;
+        }
+
+        #banner2 {
+            position: absolute;
+            top: 0px;
+            left: 100px;
+            right: 0px;
+            z-index: -1;
         }
 
         .fa-btn {
@@ -37,10 +58,84 @@
               /* bring your own prefixes */
               transform: translate(-50%, -50%);
         }
+
+        /* navbar */
+        .navbar-default {
+            background-color: rgb(255, 204, 0);
+            border-color: black;
+        }
+        /* Title */
+        .navbar-default .navbar-brand {
+            color: rgb(0, 0, 0);
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: #5E5E5E;
+        }
+        /* Link */
+        .navbar-default .navbar-nav > li > a {
+            color: rgb(0, 0, 0);
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: rgb(255, 255, 255);
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: rgb(255, 255, 255);
+            background-color: #E7E7E7;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: rgb(255, 255, 255);
+            background-color: #D5D5D5;
+        }
+        /* Caret */
+        .navbar-default .navbar-nav > .dropdown > a .caret {
+            border-top-color: rgb(0, 0, 0);
+            border-bottom-color: rgb(0, 0, 0);
+        }
+        .navbar-default .navbar-nav > .dropdown > a:hover .caret,
+        .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+            border-top-color: rgb(255, 255, 255);
+            border-bottom-color: rgb(255, 255, 255);
+        }
+        .navbar-default .navbar-nav > .open > a .caret,
+        .navbar-default .navbar-nav > .open > a:hover .caret,
+        .navbar-default .navbar-nav > .open > a:focus .caret {
+            border-top-color: rgb(255, 255, 255);
+            border-bottom-color: rgb(255, 255, 255);
+        }
+        /* Mobile version */
+        .navbar-default .navbar-toggle {
+            border-color: #DDD;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #DDD;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #CCC;
+        }
+        @media (max-width: 767px) {
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: rgb(0, 0, 0);
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: rgb(255, 255, 255);
+            }
+        }
+
     </style>
 </head>
-<body id="app-layout">
-    <nav class="navbar navbar-inverse navbar-static-top">
+<img id="banner" src="banner.jpg" alt="Banner Image"/>
+<img id="banner2" src="logo.png" alt="Banner Image"/>
+<body id="app-layout" style="padding: 72px 0 0 0;">
+
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -53,21 +148,27 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}" style="color:orange;">
-                    Laravel
+                <a class="navbar-brand" href="{{ url('/') }}" style="color:#9900ff;">
+                    <span class="glyphicon glyphicon-home"></span>
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}" style="color:yellow;">Home</a></li>
+                    <li><a href="{{ url('/home') }}">Home</a></li>
                     @if (Auth::guest())
-                        <li><a href="{{ url('/guest_lk') }}" style="color:yellow;">Kehilangan</a></li>
-                        <li><a href="{{ url('/guest_pk') }}" style="color:yellow;">Penemuan</a></li>
-                        <li><a href="{{ url('/guest_berita') }}" style="color:yellow;">Berita</a></li>
-                        <li><a href="{{ url('/visi_misi') }}" style="color:yellow;">Visi & Misi</a></li>
-                        <li><a href="{{ url('/struktur') }}" style="color:yellow;">Struktur Organisasi</a></li>
+                        <li><a href="{{ url('/guest_lk') }}">Kehilangan</a></li>
+                        <li><a href="{{ url('/guest_pk') }}">Penemuan</a></li>
+                        <li><a href="{{ url('/guest_berita') }}">Berita</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tentang Kami
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('/visi_misi') }}">Visi & Misi</a></li>
+                                <li><a href="{{ url('/struktur') }}">Struktur Organisasi</a></li>
+                            </ul>
+                        </li>
                     @else
 
                     @endif                
@@ -76,8 +177,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}" style="color:orange;">Login</a></li>
-                        <li><a href="{{ url('/register') }}" style="color:orange;">Register</a></li>
+                        <li><a href="{{ url('/login') }}" style="color:#9900ff;">Login</a></li>
+                        <li><a href="{{ url('/register') }}" style="color:#9900ff;">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -9,7 +9,7 @@
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
 
-            <div class="panel panel-default">
+            <div class="panel panel-inverse">
                 <div class="panel-heading">Laporan Kehilangan</div>
 
                 <div class="panel-body">
@@ -23,7 +23,7 @@
                             </span>
                         </div>
                     {!! Form::close() !!}
-                    <table class="table">
+                    <table class="table table-hover table-inverse">
                         <tr>
                             <th>Daerah</th>
                             <th>Pelapor</th>
