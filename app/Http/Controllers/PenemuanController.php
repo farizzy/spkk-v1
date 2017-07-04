@@ -8,6 +8,7 @@ use App\Lap_kehilangan;
 
 use Illuminate\Http\Requests;
 use App\Http\Requests\PenemuanRequest;
+use App\Http\Requests\Lap_kehilanganRequest;
 
 class PenemuanController extends Controller 
 {
@@ -55,7 +56,11 @@ class PenemuanController extends Controller
 
     $suratpenemuan = 'PK/'.$currentYear.'/'.$currentMonth.'/'.$urut;
 
-    return view('penemuan.create', compact('id_penemuan', 'temu', 'suratpenemuan', 'bersangkutan', 'test'));
+    $search = \Request::get('id');
+    $test = DB::table('lap_kehilangan')->whereRaw('id_lap_kehilangan = ?', [$search])->first();
+    //$test = array_add($test, 'notemu', $suratpenemuan);
+    //dd($test);
+    return view('penemuan.create', compact('test', 'suratpenemuan'));
   }
 
   /**
@@ -65,7 +70,12 @@ class PenemuanController extends Controller
    */
   public function store(PenemuanRequest $request)
   {
+    $id_diambil = $request->input('id_lap_kehilangan');
     Penemuan::create($request->all());
+    DB::table('lap_kehilangan')
+            ->where('id_lap_kehilangan', $id_diambil)
+            ->update(['status' => 1]);
+    //dd($query);
     return redirect()->route('penemuan.index')->with('message', 'Laporan penemuan berhasil dimasukkan!');
   }
 
@@ -110,7 +120,7 @@ class PenemuanController extends Controller
     
     //dd($request->input('nama_pengambil'));
     Penemuan::where('id_penemuan', $id_diambil)
-      ->update(['status' => 1]);
+      ->update(['status_penemuan' => 1]);
     Penemuan::where('id_penemuan', $id_diambil)
       ->update(['nama_pengambil' => $pengambil]);
     Penemuan::where('id_penemuan', $id_diambil)

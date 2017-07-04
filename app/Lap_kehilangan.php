@@ -9,7 +9,7 @@ class Lap_kehilangan extends Model
 
     protected $table = 'lap_kehilangan';
     protected $primaryKey = 'id_lap_kehilangan';
-    protected $fillable = ['id_daerah', 'no_surat_hilang', 'keterangan', 'id_pendaftaran', 'no_polisi', 'jenis_kendaraan', 'merk_kendaraan', 'warna_kendaraan', 'tanggal_hilang', 'no_mesin'];
+    protected $fillable = ['id_daerah', 'no_surat_hilang', 'keterangan', 'id_pendaftaran', 'no_polisi', 'jenis_kendaraan', 'merk_kendaraan', 'warna_kendaraan', 'tanggal_hilang', 'no_mesin', 'status'];
 
     public $timestamps = true;
 

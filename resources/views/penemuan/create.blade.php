@@ -15,28 +15,32 @@
                             {!! Form::text('no_surat_hilang', $suratpenemuan, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::hidden('id_lap_kehilangan', $test->id_lap_kehilangan, ['class'=>'form-control']) !!}
+                            <input class="form-control" name="status_penemuan" type="hidden" value="0">
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('Laporan Kehilangan yang Bersangkutan','Laporan Kehilangan yang Bersangkutan') !!}
-                            {!! Form::select('id_lap_kehilangan', $bersangkutan, null, ['class'=>'form-control']) !!}
+                            {!! Form::text(null, $test->no_surat_hilang, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('No Polisi','No Polisi') !!}
-                            {!! Form::text('no_polisi_temuan', null, ['class'=>'form-control']) !!}
+                            {!! Form::text('no_polisi_temuan', $test->no_polisi, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('No Mesin','No Mesin') !!}
-                            {!! Form::text('no_mesin_temuan', null, ['class'=>'form-control']) !!}
+                            {!! Form::text('no_mesin_temuan', $test->no_mesin, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Jenis Temuan','Jenis Temuan') !!}
-                            {!! Form::text('jenis_temuan', null, ['class'=>'form-control']) !!}
+                            {!! Form::text('jenis_temuan', $test->jenis_kendaraan, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Merk Temuan','Merk Temuan') !!}
-                            {!! Form::text('merk_temuan', null, ['class'=>'form-control']) !!}
+                            {!! Form::text('merk_temuan', $test->merk_kendaraan, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Warna Temuan','Warna Temuan') !!}
-                            {!! Form::text('warna_temuan', null, ['class'=>'form-control']) !!}
+                            {!! Form::text('warna_temuan', $test->warna_kendaraan, ['class'=>'form-control', 'readonly'=>'readonly']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Tanggal Ditemukan','Tanggal Ditemukan') !!}

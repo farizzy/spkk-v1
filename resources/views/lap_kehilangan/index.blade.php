@@ -47,11 +47,22 @@
                                 <td>{{ $lap_kehilangan->merk_kendaraan }}</td>
                                 <td>{{ $lap_kehilangan->warna_kendaraan }}</td>
                                 <td>{{ $lap_kehilangan->tanggal_hilang }}</td>
-                                <td>
-                                    {!! Form::open(array('route'=>['lap_kehilangan.destroy', $lap_kehilangan->id_lap_kehilangan], 'method'=>'DELETE')) !!}
-                                        {!! Form::button('Hapus',['class'=>'btn btn-danger', 'type'=>'submit']) !!}
-                                    {!! Form::close() !!}
-                                </td>
+                                @if ($lap_kehilangan->status === 1)
+                                    <td><p class="text-success">Ada Penemuan</p></td>
+                                    <td>
+                                        {!! Form::open(array('route'=>['lap_kehilangan.destroy', $lap_kehilangan->id_lap_kehilangan], 'method'=>'DELETE')) !!}
+                                            {!! Form::button('Hapus',['class'=>'btn btn-danger', 'type'=>'submit']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                @else
+                                    <td><p class="text-warning">Belum Ditemukan</p></td>
+                                    <td>
+                                        {!! Form::open(array('route'=>['lap_kehilangan.destroy', $lap_kehilangan->id_lap_kehilangan], 'method'=>'DELETE')) !!}
+                                            {{ link_to_route('penemuan.create', 'Penemuan', ['id'=>$lap_kehilangan->id_lap_kehilangan], ['class'=>'btn btn-default']) }}
+                                            {!! Form::button('Hapus',['class'=>'btn btn-danger', 'type'=>'submit']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </table>

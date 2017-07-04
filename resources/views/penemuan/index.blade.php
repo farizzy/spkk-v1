@@ -53,7 +53,7 @@
                                 <td>{{ $penemuan->warna_temuan }}</td>
                                 <td>{{ $penemuan->nama_pengambil }}</td>
                                 <td>{{ $penemuan->tgl_diambil }}</td>
-                                @if ($penemuan->status === 1)
+                                @if ($penemuan->status_penemuan === 1)
                                     <td><p class="text-success">Telah Diambil</p></td>
                                     <td>
                                         {!! Form::open(array('route'=>['penemuan.destroy', $penemuan->id_penemuan], 'method'=>'DELETE')) !!}

@@ -20,7 +20,22 @@
     {!!Html::script('../resources/assets/js/jquery.dataTables.js')!!} 
 
     <style>
+        html {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
         body {
+            position: relative;
+            margin: 0;
+            padding-bottom: 6rem;
+            min-height: 100%;
             font-family: 'Lato';
             background: url("banner.jpg");
             background: url("logo.png");
@@ -57,6 +72,16 @@
               left: 50%;
               /* bring your own prefixes */
               transform: translate(-50%, -50%);
+        }
+
+        .footer {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            background-color: rgb(255, 204, 0);
+            text-align: center;
         }
 
         /* navbar */
@@ -196,6 +221,8 @@
     </nav>
 
     @yield('content')
+    <br> <br>
+    <div class="footer">Copyrights @2017.</div>
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
